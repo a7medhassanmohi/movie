@@ -1,0 +1,168 @@
+@import "../../style/variable";
+@import "../../style/mixins";
+
+.details_ {
+  margin-bottom: 50px;
+  opacity: 0;
+  animation: fade 0.3s forwards;
+  animation-delay: 0.4s;
+  > .wraper {
+    min-height: 60vh;
+    background-color: rgba($color: $mcolor, $alpha: 0.7);
+    background-blend-mode: darken;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      box-shadow: 1px 1px 38px 45px $mcolor;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $mcolor;
+    }
+  }
+  > .content {
+    width: 95%;
+    margin: auto;
+    position: relative;
+    top: -30vh;
+    @include flex(c, c, 20px);
+    > .img {
+      @include width(2, 20px, 40%);
+      @include media(900) {
+        display: none;
+      }
+      img {
+        width: 90%;
+        display: block;
+        object-fit: cover;
+        display: block;
+        border-radius: 15px;
+        box-shadow: 1px 1px 47px 7px $mcolor;
+      }
+    }
+    > .content_ {
+      @include width(2, 20px, 60%);
+      @include media(900) {
+        @include width(2, 20px, 95%);
+      }
+      color: $mw;
+      > h2 {
+        font-size: clamp(30px, 6vw, 55px);
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+      > .genre {
+        @include flex(s, c, 10px);
+        > span {
+          display: block;
+          min-width: 100px;
+          border-radius: 20px;
+          border: 1px solid $mw;
+          padding: 8px;
+          text-align: center;
+
+          margin-bottom: 15px;
+        }
+      }
+      > p {
+        font-size: clamp(13px, 5vw, 16px);
+        font-weight: 200;
+        margin-bottom: 15px;
+        line-height: 1.5;
+        letter-spacing: 1.1px;
+        margin-bottom: 15px;
+      }
+      > .casts {
+        > h4 {
+          font-size: 20px;
+          margin-bottom: 15px;
+        }
+        > .img {
+          @include flex(s, c, 5px);
+          > img {
+            width: 100px;
+            display: block;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+  > .similar {
+    width: 95%;
+    margin: auto;
+    > h4 {
+      font-size: 25px;
+      color: white;
+      margin-bottom: 15px;
+    }
+    > .imges {
+      @include flex(s, s, 20px);
+      > img {
+        cursor: pointer;
+        @include width(5, 20px);
+        @include media(900) {
+          @include width(4, 20px);
+        }
+        @include media(700) {
+          @include width(3, 20px);
+        }
+        @include media(500) {
+          @include width(2, 20px);
+        }
+        @include media(300) {
+          @include width(1, 20px);
+        }
+        display: block;
+        object-fit: cover;
+      }
+    }
+  }
+  > .video {
+    width: 95%;
+    margin: auto;
+    margin-bottom: 40px;
+    text-align: center;
+
+    > h4 {
+      font-size: 25px;
+      margin-bottom: 15px;
+      color: $mw;
+      text-align: left;
+    }
+
+    > .item {
+      @include flex(c, c, 0);
+      margin-bottom: 20px;
+      > iframe {
+        @include width(1, 0, 60%);
+        @include media(900) {
+          @include width(1, 0, 100%);
+          height: 300px;
+        }
+        height: 500px;
+      }
+    }
+  }
+  > h6 {
+    font-size: 25px;
+    margin-bottom: 25px;
+    color: $mw;
+    text-align: center;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,6 @@
+@import "./style/variable.scss";
+@import "./style/mixins.scss";
+
+body {
+  background-color: $mcolor;
+}
